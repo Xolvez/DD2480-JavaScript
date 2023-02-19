@@ -57,6 +57,20 @@ This function is more complex than it needs to be. It uses `if` statements to de
 
 CCN  =  E - N + 2  =  41 - 30 + 2  =  13
 
+#### Function `ConvexHullGraham.convexHull` (NLOC 37, CCN 13):
+The purpose of this function is to find the convex hull of a finite set of points in the plane with time complexity O(n log n) using Graham Scan.
+Given a set of points in the plane, the Convex hull of the set is the smallest
+convex polygon that contains all the points of it.
+
+This function's cyclomatic complexity can be reduced.
+Firstly, it uses two `for` loop to slice copy and reverse the array. This can be achieved with `slice()` and `reverse()`.
+Secondly, the process of updating `upperPoints` and `lowerPoints` can be put into sub-functions, which reduces the complexity and make the function more readable.
+Additionally, the function has a redundant `if` condition that can be removed.
+
+The cyclomatic complexity is:
+
+CCN  =  E - N + 2  = 44 - 33 + 2  =  13
+
 ## Refactoring
 
 Plan for refactoring complex code:
