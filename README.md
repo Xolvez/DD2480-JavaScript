@@ -57,6 +57,14 @@ This function is more complex than it needs to be. It uses `if` statements to de
 
 CCN  =  E - N + 2  =  41 - 30 + 2  =  13
 
+#### Function `ConwaysGameOfLife.newGeneration` (25 NLOC, 20 CCN):
+
+This function implements the famous Game Of Life by computing the next generation of cells from the current one. It takes as argument an integer matrix representing the alive cells with value 1 and dead cells with value 0, and evaluates which cells survive or not according to the status of their neighbours. It returns the matrix of the new cell generation. 
+
+The function has a cyclomatic complexity of 20 but a lign count of 25, so the complexity here is not due to the length of the function, but rather the fact that we need to check all neighbours of a cell to determine whether it survives or not. So this complexity can difficulty be avoided.
+
+All different outcomes of the game are very well documented in the head comment of the file, and the different steps are commented inside the function, so it is very easy to understand the outcome from different branches. 
+
 ## Refactoring
 
 Plan for refactoring complex code:
