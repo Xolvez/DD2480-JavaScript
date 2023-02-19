@@ -63,6 +63,10 @@ git diff ...
 
 This function can be refactored by computing an index value instead of using a `switch-case` statement. The index value can be computed by subtracting the ASCII-value of `'0'` from the ASCII-value of each character in the binary string and then shift the bit into the corresponding position. That index value can then be used to return the corresponding character from an array containing all of the hexadecimal digits.
 
+Before the refactoring the function had 24 NLOC, 18 CCN and 50% branch coverage. After the refactoring the function has 12 NLOC, 2 CCN and 100% branch coverage.
+
+<https://github.com/Xolvez/DD2480-JavaScript/commit/b42e857819676f79647d44083fb126015c636cd8>
+
 ## Coverage
 
 ### Tools
