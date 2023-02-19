@@ -75,6 +75,13 @@ This function can be refactored by computing an index value instead of using a `
 
 As mentioned earlier, a large part of the complexity of this function comes from checking for invalid input. By creating and calling another function, `validateInput`, which handles all input validation and error throwing, the cyclomatic complexity can be reduced significantly. In fact, making this simple adjustment almost cuts the cyclomatic complexity in half, reducing it from 15 down to just 8.
 
+
+### Function `RgbHsvConversion.getRgbBySection`:
+
+This function can be refactored by replacing the `if-else` statements with five `if` statements.
+And since the invalid input is checked before this function is called(`hueSection` < 0 and `hueSection` > 6), we don't need to check them again.
+Making this adjustment can cut the cyclomatic complexity from 11 to 5.
+
 ## Coverage
 
 ### Tools
