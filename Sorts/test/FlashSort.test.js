@@ -23,3 +23,9 @@ test('The flash sort of the array [-3, 0, -2, -5, -1, -4, -1, -2] is [-5, -4, -3
   const res = flashSort(array)
   expect(res).toEqual([-5, -4, -3, -2, -2, -1, -1, 0])
 })
+
+test('The flash sort of the array [4, 4, 4, 4, 4] is [4, 4, 4, 4, 4]', () => {
+  const array = [4, 4, 4, 4, 4]
+  const res = flashSort(array)
+  expect(res).toEqual([4, 4, 4, 4, 4])
+})
