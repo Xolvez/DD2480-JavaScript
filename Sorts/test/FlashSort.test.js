@@ -29,3 +29,9 @@ test('The flash sort of the array [4, 4, 4, 4, 4] is [4, 4, 4, 4, 4]', () => {
   const res = flashSort(array)
   expect(res).toEqual([4, 4, 4, 4, 4])
 })
+
+test('The flash sort of the array [MAX_INT, MIN_INT] is [MIN_INT, MAX_INT]', () => {
+  const array = [Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER]
+  const res = flashSort(array)
+  expect(res).toEqual([Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER])
+})
