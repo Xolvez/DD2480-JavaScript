@@ -57,6 +57,19 @@ This function is more complex than it needs to be. It uses `if` statements to de
 
 CCN  =  E - N + 2  =  41 - 30 + 2  =  13
 
+
+#### Function `RgbHsvConversion.getRgbBySection` (NLOC 29, CCN 11):
+
+Lizard calculated the cyclomatic complexity of `RgbHsvConversion.getRgbBySection` as 11.
+
+The purpose of this function is to convert the HSV-representation to the RGB-representation. The original input is the hue, saturation and brightness-value of the color. Before `RgbHsvConversion.getRgbBySection` is called, four intermediate value is calculated and used as the input of this function. Output is the red, green and blue value.
+
+This function is more complex than it needs to be. It uses `if-else` statements to determine the calculation method of RGB value according to the value of `hueSection`. But more than half of the conditions is unnecessary.  As a result of that the cyclic complexity number is inappropriately high.
+
+Manually count the cyclomatic complexity:
+
+CCN = E - N + 2 = 30 - 21 + 2 = 11
+
 ## Refactoring
 
 Plan for refactoring complex code:
