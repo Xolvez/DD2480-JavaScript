@@ -38,6 +38,10 @@ Carried out refactoring (optional, P+):
 
 git diff ...
 
+#### Function `BinaryToHex.hexLookup` (24 NLOC, 18 CCN):
+
+This function can be refactored by computing an index value instead of using a `switch-case` statement. The index value can be computed by subtracting the ASCII-value of `'0'` from the ASCII-value of each character in the binary string and then shift the bit into the corresponding position. That index value can then be used to return the corresponding character from an array containing all of the hexadecimal digits.
+
 ## Coverage
 
 ### Tools
