@@ -20,3 +20,10 @@ test('fibonacciSearch([40, 45, 50, 80, 82, 85, 90, 100]. 190, arr.length) => -1'
   const res = fibonacciSearch(arr, target, arr.length)
   expect(res).toEqual(-1)
 })
+
+test('fibonacciSearch([-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5], 0, arr.length) => 5', () => {
+  const arr = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
+  const target = 0
+  const res = fibonacciSearch(arr, target, arr.length)
+  expect(res).toEqual(5)
+})
