@@ -28,6 +28,14 @@ for each project, along with reason(s) why you changed to a different one.
 4. Are exceptions taken into account in the given measurements?
 5. Is the documentation clear w.r.t. all the possible outcomes?
 
+#### Function `BinaryToHex.hexLookup` (24 NLOC, 18 CCN):
+
+The purpose of this function is to convert a binary value into a hexadecimal value. Input is a block of 4 characters representing half of a byte in binary form. Output is a block of 1 character representing half of a byte in hexadecimal form.
+
+This function is more complex than it needs to be. It uses a `switch-case` statement to determine the corresponding hexadecimal value which in turn results in 16 different cases. As a result of that the cyclic complexity number is inappropriately high and the function itself is also inappropriately long. On top of that it's inefficient since it makes a string comparison up to 16 times to determine which case to use instead of computing it directly.
+
+CCN  =  E - N + 2  =  38 - 23 + 2  =  17
+
 ## Refactoring
 
 Plan for refactoring complex code:
