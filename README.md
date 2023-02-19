@@ -41,6 +41,14 @@ This function is more complex than it needs to be. It uses a `switch-case` state
 
 CCN  =  E - N + 2  =  38 - 23 + 2  =  17
 
+#### Function `FlashSort.flashSort` (58 NLOC, 15 CCN):
+
+The purpose of this function is to efficiently sort an array of numerical values. Input is an array consisting of `n` number of elements. Output is an array consisting of the same `n` number of elements sorted in ascending order.
+
+This function is more complex than it needs to be. It uses `if` statements to determine the `min` value and `max` index of the input array when a conditional operator could have been used instead. Further it uses one `for` loop to set all buckets to zero when that could have been achieved with `Array.fill` instead. It also uses insertion sort as the final step but reimplements it rather than calling the existing implementation.
+
+CCN  =  E - N + 2  =  41 - 30 + 2  =  13
+
 ## Refactoring
 
 Plan for refactoring complex code:
