@@ -27,3 +27,10 @@ test('fibonacciSearch([-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5], 0, arr.length) => 
   const res = fibonacciSearch(arr, target, arr.length)
   expect(res).toEqual(5)
 })
+
+test('fibonacciSearch([1], 1, arr.length) => 0', () => {
+  const arr = [1]
+  const target = 1
+  const res = fibonacciSearch(arr, target, arr.length)
+  expect(res).toEqual(0)
+})
