@@ -64,9 +64,8 @@ function integralEvaluation (N, a, b, func) {
   return result
 }
 
-
 function integralEvaluationRefractored (N, a, b, func) {
-  function validateInput() {
+  function validateInput () {
     // Check if N is an even integer
     const isNEven = N % 2 === 0
 
@@ -78,8 +77,8 @@ function integralEvaluationRefractored (N, a, b, func) {
     if (a > b) { throw Error('a must be less or equal than b') }
   }
 
-  validateInput();
-  
+  validateInput()
+
   if (a === b) return 0
 
   // Calculate the step h
@@ -112,4 +111,4 @@ function integralEvaluationRefractored (N, a, b, func) {
   return result
 }
 
-export { integralEvaluation }
+export { integralEvaluation, integralEvaluationRefractored }
