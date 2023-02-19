@@ -63,6 +63,10 @@ git diff ...
 
 This function can be refactored by computing an index value instead of using a `switch-case` statement. The index value can be computed by subtracting the ASCII-value of `'0'` from the ASCII-value of each character in the binary string and then shift the bit into the corresponding position. That index value can then be used to return the corresponding character from an array containing all of the hexadecimal digits.
 
+### Function `SimpsonIntegration.integralEvaluation`:
+
+As mentioned earlier, a large part of the complexity of this function comes from checking for invalid input. By creating and calling another function, `validateInput`, which handles all input validation and error throwing, the cyclomatic complexity can be reduced significantly. In fact, making this simple adjustment almost cuts the cyclomatic complexity in half, reducing it from 15 down to just 8.
+
 ## Coverage
 
 ### Tools
