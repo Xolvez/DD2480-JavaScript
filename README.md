@@ -36,7 +36,7 @@ This function is more complex than it needs to be. It uses a `switch-case` state
 
 CCN  =  E - N + 2  =  38 - 23 + 2  =  17
 
-### Function SimpsonsIntegration.integralEvaluation
+### Function SimpsonIntegration.integralEvaluation
 
 For the function integralEvaluation in Maths/SimpsonIntegration.js, lizard calculated its cyclomatic complexity as 15. When analysing the function by hand, I constructed a control flow graph with 37 edges and 24 nodes. Using the formula E - N + 2, the by-hand cyclomatic complexity was also calculated as 15. It seems lizard does account for exceptions, as while constructing my control flow diagram, I drew edges from where the exceptions were thrown to the return node at the bottom. If these are not counted, the cyclomatic complexity is significantly lower.
 
