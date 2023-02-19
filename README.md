@@ -105,6 +105,23 @@ its output?
 
 3. Are the results of your tool consistent with existing coverage tools?
 
+#### Function `FlashSort.flashSort` (58 NLOC, 15 CCN):
+
+The ad-hoc coverage tool can be found in the following commit:
+<https://github.com/Xolvez/DD2480-JavaScript/commit/ce0414e95ff2d38a01357c273e5e999a4edb0ae2>
+
+Using it with the 4 tests in that branch results in the following output:
+```
+Branch 5 was not covered.
+Branch 6 was not covered.
+Branch 9 was not covered.
+Branch 12 was not covered.
+Branch 14 was not covered.
+Branch 16 was not covered.
+```
+
+The biggest limitation of the tool at the moment is that it requires the user to manually add logging lines in the target function. The results are inconsistent compared to the measurement with `npm test -- --coverage` which only detects that branch indices `6` and `14` are uncovered. For example, it seems like it does not consider the branches that correspond to loops that was entirely skipped, such as branch index `5`.
+
 ## Coverage improvement
 
 Show the comments that describe the requirements for the coverage.
