@@ -119,6 +119,16 @@ git diff ...
 
 Number of test cases added: two per team member (P) or at least four (P+).
 
+#### Function `FibonacciSearch.fibonacciSearch` (75% branch coverage):
+
+<https://github.com/Xolvez/DD2480-JavaScript/commit/f2abd7138883993f10f7ba3facd437d4d31d4e95>
+
+Extends the testing with a case where the input array consists of both negative and positive elements and also contains the target element. Increases the branch coverage to 87.5%.
+
+<https://github.com/Xolvez/DD2480-JavaScript/commit/60db3f98be7914d343fedcfd01dd123ab98edf66>
+
+Extends the testing with a case where the input array consists of only one single element which also happens to be the target element. Increases the branch coverage to 100%.
+
 ## Self-assessment: Way of working
 
 Current state according to the Essence standard: ...
