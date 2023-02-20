@@ -41,14 +41,6 @@ This function is more complex than it needs to be. It uses a `switch-case` state
 
 CCN  =  E - N + 2  =  38 - 23 + 2  =  17
 
-### Function SimpsonIntegration.integralEvaluation
-
-For the function integralEvaluation in Maths/SimpsonIntegration.js, lizard calculated its cyclomatic complexity as 15. When analysing the function by hand, I constructed a control flow graph with 37 edges and 24 nodes. Using the formula E - N + 2, the by-hand cyclomatic complexity was also calculated as 15. It seems lizard does account for exceptions, as while constructing my control flow diagram, I drew edges from where the exceptions were thrown to the return node at the bottom. If these are not counted, the cyclomatic complexity is significantly lower.
-
-The purpose of the function is to approximate the value of a definite integral, using Simpsons 1/3 rule. This function was one of the ones with the highest cyclomatic complexity in the repository, but its number of lines of code (26) is not particularly large. A large part of the cyclomatic complexity seems to be comming from the quite extensive input validation.
-
-The documentation of the function is quite thorough. There is a comment above the function, explaining what the function does, as well as the requirements of the different parameters. There are also comments inside the function, explaning what different parts are supposed to do. When the function throws an error, it is clearly specified by the error message what went wrong. There is extensive error checking for the input, however, I noticed that there is no check to make sure that the passed variable "func" is indeed a function. If it is not, an error will be thrown when the "func"-variable is attemped to be invoked.
-
 #### Function `FlashSort.flashSort` (58 NLOC, 15 CCN):
 
 The purpose of this function is to efficiently sort an array of numerical values. Input is an array consisting of `n` number of elements. Output is an array consisting of the same `n` number of elements sorted in ascending order.
@@ -56,6 +48,61 @@ The purpose of this function is to efficiently sort an array of numerical values
 This function is more complex than it needs to be. It uses `if` statements to determine the `min` value and `max` index of the input array when a conditional operator could have been used instead. Further it uses one `for` loop to set all buckets to zero when that could have been achieved with `Array.fill` instead. It also uses insertion sort as the final step but reimplements it rather than calling the existing implementation.
 
 CCN  =  E - N + 2  =  41 - 30 + 2  =  13
+
+#### Function `ConvexHullGraham.convexHull` (NLOC 37, CCN 13):
+The purpose of this function is to find the convex hull of a finite set of points in the plane with time complexity O(n log n) using Graham Scan.
+Given a set of points in the plane, the Convex hull of the set is the smallest
+convex polygon that contains all the points of it.
+
+This function's cyclomatic complexity can be reduced.
+Firstly, it uses two `for` loop to slice copy and reverse the array. This can be achieved with `slice()` and `reverse()`.
+Secondly, the process of updating `upperPoints` and `lowerPoints` can be put into sub-functions, which reduces the complexity and make the function more readable.
+Additionally, the function has a redundant `if` condition that can be removed.
+
+The cyclomatic complexity is:
+
+CCN  =  E - N + 2  = 44 - 33 + 2  =  13
+
+#### Function `RgbHsvConversion.getRgbBySection` (NLOC 29, CCN 11):
+
+Lizard calculated the cyclomatic complexity of `RgbHsvConversion.getRgbBySection` as 11.
+
+The purpose of this function is to convert the HSV-representation to the RGB-representation. The original input is the hue, saturation and brightness-value of the color. Before `RgbHsvConversion.getRgbBySection` is called, four intermediate value is calculated and used as the input of this function. Output is the red, green and blue value.
+
+This function is more complex than it needs to be. It uses `if-else` statements to determine the calculation method of RGB value according to the value of `hueSection`. But more than half of the conditions is unnecessary.  As a result of that the cyclic complexity number is inappropriately high.
+
+Manually count the cyclomatic complexity:
+
+CCN = E - N + 2 = 30 - 21 + 2 = 11
+
+#### Function `PrimMST._shiftDown` (39 NLOC, 12 CCN):
+
+This function is part of PrimMST, which generates a Minimum Spanning Tree (MST) of a graph using Prim's Algorithm. To order the weighted edges, a Minimum Binary Heap is used to implement the class Priority Queue. `_shiftDown` is a method of this class which takes as argument the position of a node and shifts it down in the heap to a correct position (ie all of its parents should have smaller values and all of its children greater values).
+
+This function has a cyclomatic complexity number of 12 (CCN = E - N + 2 x P = 32 - 22 + 2 x 1 = 12). When computing the CCN by hand, we find the same result as "lizard" if we take into account exceptions with their `try {} catch () {}` statements, and we consider clauses individually in every predicate. This function also has a high number of ligns of code compared to the others in the class, so it seems in this case that NLOC and CCN are correlated.
+
+The complexity of the function could be largely avoided by adding an auxiliary function to get the priorities of the children of a node. We could also avoid checking if the children exist because we already have that information from the priority, which is infinite if a node doesn't exist.
+
+The different outcomes of taking branches in this function are not at all documented, we only have a comment at the top of the method to indicate what it does, but no indications are given inside the function.
+
+
+#### Function `ConwaysGameOfLife.newGeneration` (25 NLOC, 20 CCN):
+
+This function implements the famous Game Of Life by computing the next generation of cells from the current one. It takes as argument an integer matrix representing the alive cells with value 1 and dead cells with value 0, and evaluates which cells survive or not according to the status of their neighbours. It returns the matrix of the new cell generation. 
+
+The function has a cyclomatic complexity of 20 but a lign count of 25, so the complexity here is not due to the length of the function, but rather the fact that we need to check all neighbours of a cell to determine whether it survives or not. So this complexity can difficulty be avoided.
+
+All different outcomes of the game are very well documented in the head comment of the file, and the different steps are commented inside the function, so it is very easy to understand the outcome from different branches. 
+
+
+#### Function SimpsonIntegration.integralEvaluation
+
+For the function integralEvaluation in Maths/SimpsonIntegration.js, lizard calculated its cyclomatic complexity as 15. When analysing the function by hand, I constructed a control flow graph with 37 edges and 24 nodes. Using the formula E - N + 2, the by-hand cyclomatic complexity was also calculated as 15. It seems lizard does account for exceptions, as while constructing my control flow diagram, I drew edges from where the exceptions were thrown to the return node at the bottom. If these are not counted, the cyclomatic complexity is significantly lower.
+
+The purpose of the function is to approximate the value of a definite integral, using Simpsons 1/3 rule. This function was one of the ones with the highest cyclomatic complexity in the repository, but its number of lines of code (26) is not particularly large. A large part of the cyclomatic complexity seems to be comming from the quite extensive input validation.
+
+The documentation of the function is quite thorough. There is a comment above the function, explaining what the function does, as well as the requirements of the different parameters. There are also comments inside the function, explaning what different parts are supposed to do. When the function throws an error, it is clearly specified by the error message what went wrong. There is extensive error checking for the input, however, I noticed that there is no check to make sure that the passed variable "func" is indeed a function. If it is not, an error will be thrown when the "func"-variable is attemped to be invoked.
+
 
 ## Refactoring
 
@@ -71,9 +118,16 @@ git diff ...
 
 This function can be refactored by computing an index value instead of using a `switch-case` statement. The index value can be computed by subtracting the ASCII-value of `'0'` from the ASCII-value of each character in the binary string and then shift the bit into the corresponding position. That index value can then be used to return the corresponding character from an array containing all of the hexadecimal digits.
 
-### Function `SimpsonIntegration.integralEvaluation`:
+Before the refactoring the function had 24 NLOC, 18 CCN and 50% branch coverage. After the refactoring the function has 12 NLOC, 2 CCN and 100% branch coverage.
+
+<https://github.com/Xolvez/DD2480-JavaScript/commit/b42e857819676f79647d44083fb126015c636cd8>
+
+#### Function `SimpsonIntegration.integralEvaluation`:
 
 As mentioned earlier, a large part of the complexity of this function comes from checking for invalid input. By creating and calling another function, `validateInput`, which handles all input validation and error throwing, the cyclomatic complexity can be reduced significantly. In fact, making this simple adjustment almost cuts the cyclomatic complexity in half, reducing it from 15 down to just 8.
+
+
+The refractoring was carried out in the commit [f08ccc95131a607eb9013abd2abf56642a7f861d](https://github.com/Xolvez/DD2480-JavaScript/commit/f08ccc95131a607eb9013abd2abf56642a7f861d). Before the refractor, the function had 26 NLOC and a cyclomatic complexity of 15. After the refractor, the function has 22 NLOC and a cyclomatic complexity of 8.
 
 ### Function `ConvexHullGraham.convexHull`:
 As mentioned earlier, this function's cyclomatic complexity can be reduced.
@@ -82,6 +136,12 @@ Secondly, the process of updating `upperPoints` and `lowerPoints` can be put int
 Additionally, the function has a redundant `if` condition that can be removed, which reduced the complexity by 1.
 Making these adjustments should reduce the cyclomatic complexity from 13 to 6.
 
+
+### Function `RgbHsvConversion.getRgbBySection`:
+
+This function can be refactored by replacing the `if-else` statements with five `if` statements.
+And since the invalid input is checked before this function is called(`hueSection` < 0 and `hueSection` > 6), we don't need to check them again.
+Making this adjustment can cut the cyclomatic complexity from 11 to 5.
 
 ## Coverage
 
@@ -113,6 +173,23 @@ its output?
 
 3. Are the results of your tool consistent with existing coverage tools?
 
+#### Function `FlashSort.flashSort` (58 NLOC, 15 CCN):
+
+The ad-hoc coverage tool can be found in the following commit:
+<https://github.com/Xolvez/DD2480-JavaScript/commit/ce0414e95ff2d38a01357c273e5e999a4edb0ae2>
+
+Using it with the 4 tests in that branch results in the following output:
+```
+Branch 5 was not covered.
+Branch 6 was not covered.
+Branch 9 was not covered.
+Branch 12 was not covered.
+Branch 14 was not covered.
+Branch 16 was not covered.
+```
+
+The biggest limitation of the tool at the moment is that it requires the user to manually add logging lines in the target function. The results are inconsistent compared to the measurement with `npm test -- --coverage` which only detects that branch indices `6` and `14` are uncovered. For example, it seems like it does not consider the branches that correspond to loops that was entirely skipped, such as branch index `5`.
+
 ## Coverage improvement
 
 Show the comments that describe the requirements for the coverage.
@@ -126,6 +203,26 @@ Test cases added:
 git diff ...
 
 Number of test cases added: two per team member (P) or at least four (P+).
+
+#### Function `FibonacciSearch.fibonacciSearch` (75% branch coverage):
+
+<https://github.com/Xolvez/DD2480-JavaScript/commit/f2abd7138883993f10f7ba3facd437d4d31d4e95>
+
+Extends the testing with a case where the input array consists of both negative and positive elements and also contains the target element. Increases the branch coverage to 87.5%.
+
+<https://github.com/Xolvez/DD2480-JavaScript/commit/60db3f98be7914d343fedcfd01dd123ab98edf66>
+
+Extends the testing with a case where the input array consists of only one single element which also happens to be the target element. Increases the branch coverage to 100%.
+
+#### Function `FlashSort.flashSort` (80% branch coverage):
+
+<https://github.com/Xolvez/DD2480-JavaScript/commit/6f379952ce76bb83c4fdcca1d0d49e6d0baa2b9b>
+
+Extends the testing with a case where the input array consists of multiple elements that are all of the same value. Increases the branch coverage to 90%.
+
+<https://github.com/Xolvez/DD2480-JavaScript/commit/f5514c2c0ffb86beabff01ca01d6f9fe168d1777>
+
+Extends the testing with a case where the input array consists of the positive and negative extreme values for integers in descending order. Increases the branch coverage to 100%.
 
 ## Self-assessment: Way of working
 
