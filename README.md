@@ -126,7 +126,15 @@ Before the refactoring the function had 24 NLOC, 18 CCN and 50% branch coverage.
 
 As mentioned earlier, a large part of the complexity of this function comes from checking for invalid input. By creating and calling another function, `validateInput`, which handles all input validation and error throwing, the cyclomatic complexity can be reduced significantly. In fact, making this simple adjustment almost cuts the cyclomatic complexity in half, reducing it from 15 down to just 8.
 
+
 The refractoring was carried out in the commit [f08ccc95131a607eb9013abd2abf56642a7f861d](https://github.com/Xolvez/DD2480-JavaScript/commit/f08ccc95131a607eb9013abd2abf56642a7f861d). Before the refractor, the function had 26 NLOC and a cyclomatic complexity of 15. After the refractor, the function has 22 NLOC and a cyclomatic complexity of 8.
+
+### Function `ConvexHullGraham.convexHull`:
+As mentioned earlier, this function's cyclomatic complexity can be reduced.
+Firstly, it uses two `for` loop to slice copy and reverse the array. This can be achieved with `slice()` and `reverse()`, which can reduce the complexity by 2. 
+Secondly, the process of updating `upperPoints` and `lowerPoints` can be put into sub-functions, which reduces the complexity by 4 and make the function more readable.
+Additionally, the function has a redundant `if` condition that can be removed, which reduced the complexity by 1.
+Making these adjustments should reduce the cyclomatic complexity from 13 to 6.
 
 
 ### Function `RgbHsvConversion.getRgbBySection`:
