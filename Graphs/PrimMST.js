@@ -121,9 +121,16 @@ class PriorityQueue {
       }
       [child1Pos, child2Pos] = getChildrenPosition(currPos)
       try {
-        [child1Priority, child2Priority] = [this._heap[child1Pos][1], this._heap[child2Pos][1]]
-      } catch (error) {
-        [child1Priority, child2Priority] = [Infinity, Infinity]
+        child1Priority = this._heap[child1Pos][1]
+      }
+      catch (error) {
+        child1Priority = Infinity
+      }
+      try {
+        child2Priority = this._heap[child2Pos][1]
+      }
+      catch (error) {
+        child2Priority = Infinity
       }
 
       currPriority = this._heap[currPos][1]
