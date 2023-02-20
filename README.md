@@ -119,6 +119,10 @@ git diff ...
 
 Number of test cases added: two per team member (P) or at least four (P+).
 
+### Function `Sorts/InsertionSort.insertionSort`:
+
+This function had 0 tests written for it, and thus the function itself had 0% coverage. The file, had a statement-, branch- and lines-coverage of 63.15%, 66.66% respectively 62.5%. After the added tests, all of these numbers was 100%, as measured by lizard. The tests were implemented in the commit [e647b5d52f2d640e43d56ae6874818b0a82a3f73](https://github.com/Xolvez/DD2480-JavaScript/commit/e647b5d52f2d640e43d56ae6874818b0a82a3f73).
+
 ## Self-assessment: Way of working
 
 Current state according to the Essence standard: ...
