@@ -150,6 +150,16 @@ Extends the testing with a case where the input array consists of both negative 
 
 Extends the testing with a case where the input array consists of only one single element which also happens to be the target element. Increases the branch coverage to 100%.
 
+#### Function `FlashSort.flashSort` (80% branch coverage):
+
+<https://github.com/Xolvez/DD2480-JavaScript/commit/6f379952ce76bb83c4fdcca1d0d49e6d0baa2b9b>
+
+Extends the testing with a case where the input array consists of multiple elements that are all of the same value. Increases the branch coverage to 90%.
+
+<https://github.com/Xolvez/DD2480-JavaScript/commit/f5514c2c0ffb86beabff01ca01d6f9fe168d1777>
+
+Extends the testing with a case where the input array consists of the positive and negative extreme values for integers in descending order. Increases the branch coverage to 100%.
+
 ## Self-assessment: Way of working
 
 Current state according to the Essence standard: ...
