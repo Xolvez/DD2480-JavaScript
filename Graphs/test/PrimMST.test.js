@@ -36,3 +36,19 @@ test('Test Case _shiftDown 1', () => {
     expect(queue).toEqual(expectedQueue)
 })
 
+test('Test Case _shiftDown 2', () => {
+    //create queue
+    const queue = new PriorityQueue()
+    queue.push(0, 3)
+    queue.push(1, 9)
+    queue.push(2, 7)
+    queue.push(3, 13)
+    //create expected queue
+    const expectedQueue = new PriorityQueue()
+    expectedQueue.push(2, 7)
+    expectedQueue.push(1, 9)
+    expectedQueue.push(3, 13)
+    //result from poping element from the queue
+    queue.pop()
+    expect(queue).toEqual(expectedQueue)
+})
