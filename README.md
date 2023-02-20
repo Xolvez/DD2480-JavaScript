@@ -79,6 +79,8 @@ Before the refactoring the function had 24 NLOC, 18 CCN and 50% branch coverage.
 
 As mentioned earlier, a large part of the complexity of this function comes from checking for invalid input. By creating and calling another function, `validateInput`, which handles all input validation and error throwing, the cyclomatic complexity can be reduced significantly. In fact, making this simple adjustment almost cuts the cyclomatic complexity in half, reducing it from 15 down to just 8.
 
+The refractoring was carried out in the commit [f08ccc95131a607eb9013abd2abf56642a7f861d](https://github.com/Xolvez/DD2480-JavaScript/commit/f08ccc95131a607eb9013abd2abf56642a7f861d). Before the refractor, the function had 26 NLOC and a cyclomatic complexity of 15. After the refractor, the function has 22 NLOC and a cyclomatic complexity of 8.
+
 ## Coverage
 
 ### Tools
