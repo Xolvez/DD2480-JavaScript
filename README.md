@@ -184,6 +184,25 @@ Extends the testing with a case where the input array consists of multiple eleme
 
 Extends the testing with a case where the input array consists of the positive and negative extreme values for integers in descending order. Increases the branch coverage to 100%.
 
+#### Function `_shiftDown` of Graphs/PrimMST.js (from 0% to 92% branch coverage):
+
+The following commit adds a test file for PrimMST because there was none, and we can check that with an empty test suite, we get 0% coverage:
+<https://github.com/Xolvez/DD2480-JavaScript/commit/b4e86090d56aea2e4e3e62ef1b9afd5c5f1d9bf5>
+
+This commit adds a first unit test calling the function PrimMST directly, and increases the branch coverage to 81.25%:
+<https://github.com/Xolvez/DD2480-JavaScript/commit/1ec9ed0aa4154908d52c7cb968e229f9f805b56b>
+
+This commit adds a first unit test specifically for the function _shiftDown. For that, the PriorityQueue class has to be exported to be able to call its methods directly from the test. This addition increases the branch coverage to 87.5%:
+<https://github.com/Xolvez/DD2480-JavaScript/commit/de29721b2930735d5ccb8ee9968581a36ca38db3>
+
+This commit adds a second unit test specifically for the function _shiftDown. It targets a PriorityQueue where we need to shift a node down to the right side of the tree instead of the left. This addition increases the branch coverage to 89.58%:
+<https://github.com/Xolvez/DD2480-JavaScript/commit/4108f7837347ccefcb3092e3247285ec68604a07>
+
+This commit adds a third unit test specifically for the function _shiftDown. It targets a PriorityQueue where we need to shift a node down to a left-child leaf which doesn't have a right-child "brother". This addition increases the branch coverage to 91.66%:
+<https://github.com/Xolvez/DD2480-JavaScript/commit/b6211d19e53a5631451432b3b589ea8f24d14a47>
+
+By adding those 4 unit tests, we increased branch coverage from 0% to 91.66% for the whole file PrimMST.js and most importantly, the last test helped find a bug in the method, which we corrected.
+
 ## Self-assessment: Way of working
 
 Current state according to the Essence standard: ...
