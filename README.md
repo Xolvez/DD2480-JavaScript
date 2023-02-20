@@ -119,6 +119,10 @@ git diff ...
 
 Number of test cases added: two per team member (P) or at least four (P+).
 
+### Function `SimpsonIntegration.integralEvaluation`:
+
+The coverage of this function was quite low, as almost no tests for invalid input had been written. I implemented tests that took all branches, and increased the coverage to 100% for statements, branches and lines. Before the new tests, the statement- and branch-coverage was 79.41% respectively 69.56%. The tests were implemented in the commit [10dededbbeb3fe01e87282c638b83d2066aedb89](https://github.com/Xolvez/DD2480-JavaScript/commit/10dededbbeb3fe01e87282c638b83d2066aedb89).
+
 ## Self-assessment: Way of working
 
 Current state according to the Essence standard: ...
