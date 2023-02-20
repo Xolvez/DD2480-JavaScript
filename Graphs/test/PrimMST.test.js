@@ -1,4 +1,4 @@
-import { GraphWeightedUndirectedAdjacencyList } from '../PrimMST.js'
+import { GraphWeightedUndirectedAdjacencyList, PriorityQueue} from '../PrimMST.js'
 
 test('Test Case PrimMST 1', () => {
     //create graph to compute MST on
@@ -14,7 +14,25 @@ test('Test Case PrimMST 1', () => {
     expectedGraph.addEdge(2, 3, 2)
     expectedGraph.addEdge(3, 4, 1)
     expectedGraph.addEdge(4, 5, 5)
-    //result
+    //result from MST
     const res = graph.PrimMST(1)
     expect(res).toEqual(expectedGraph)
 })
+
+test('Test Case _shiftDown 1', () => {
+    //create queue
+    const queue = new PriorityQueue()
+    queue.push(0, 3)
+    queue.push(1, 7)
+    queue.push(2, 9)
+    queue.push(3, 13)
+    //create expected queue
+    const expectedQueue = new PriorityQueue()
+    expectedQueue.push(1, 7)
+    expectedQueue.push(3, 13)
+    expectedQueue.push(2, 9)
+    //result from poping element from the queue
+    queue.pop()
+    expect(queue).toEqual(expectedQueue)
+})
+

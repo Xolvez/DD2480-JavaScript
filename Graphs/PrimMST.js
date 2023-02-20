@@ -143,6 +143,8 @@ class PriorityQueue {
   }
 }
 
+export { PriorityQueue }
+
 class GraphWeightedUndirectedAdjacencyList {
   // Weighted Undirected Graph class
   constructor () {
