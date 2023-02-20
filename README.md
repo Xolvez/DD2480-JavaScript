@@ -114,6 +114,13 @@ As mentioned earlier, a large part of the complexity of this function comes from
 
 The refractoring was carried out in the commit [f08ccc95131a607eb9013abd2abf56642a7f861d](https://github.com/Xolvez/DD2480-JavaScript/commit/f08ccc95131a607eb9013abd2abf56642a7f861d). Before the refractor, the function had 26 NLOC and a cyclomatic complexity of 15. After the refractor, the function has 22 NLOC and a cyclomatic complexity of 8.
 
+
+### Function `RgbHsvConversion.getRgbBySection`:
+
+This function can be refactored by replacing the `if-else` statements with five `if` statements.
+And since the invalid input is checked before this function is called(`hueSection` < 0 and `hueSection` > 6), we don't need to check them again.
+Making this adjustment can cut the cyclomatic complexity from 11 to 5.
+
 ## Coverage
 
 ### Tools
