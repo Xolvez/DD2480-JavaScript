@@ -20,18 +20,21 @@
 * More info: [Wikipedia link](https://en.wikipedia.org/wiki/Simpson%27s_rule#Composite_Simpson's_rule)
 *
 */
-
 function integralEvaluation (N, a, b, func) {
-  // Check if N is an even integer
-  let isNEven = true
-  if (N % 2 !== 0) isNEven = false
+  function validateInput () {
+    // Check if N is an even integer
+    const isNEven = N % 2 === 0
 
-  if (!Number.isInteger(N) || Number.isNaN(a) || Number.isNaN(b)) { throw new TypeError('Expected integer N and finite a, b') }
-  if (!isNEven) { throw Error('N is not an even number') }
-  if (N <= 0) { throw Error('N has to be >= 2') }
+    if (!Number.isInteger(N) || Number.isNaN(a) || Number.isNaN(b)) { throw new TypeError('Expected integer N and finite a, b') }
+    if (!isNEven) { throw Error('N is not an even number') }
+    if (N <= 0) { throw Error('N has to be >= 2') }
 
-  // Check if a < b
-  if (a > b) { throw Error('a must be less or equal than b') }
+    // Check if a < b
+    if (a > b) { throw Error('a must be less or equal than b') }
+  }
+
+  validateInput()
+
   if (a === b) return 0
 
   // Calculate the step h
