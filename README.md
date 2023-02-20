@@ -49,6 +49,16 @@ This function is more complex than it needs to be. It uses `if` statements to de
 
 CCN  =  E - N + 2  =  41 - 30 + 2  =  13
 
+
+#### Function `ConwaysGameOfLife.newGeneration` (25 NLOC, 20 CCN):
+
+This function implements the famous Game Of Life by computing the next generation of cells from the current one. It takes as argument an integer matrix representing the alive cells with value 1 and dead cells with value 0, and evaluates which cells survive or not according to the status of their neighbours. It returns the matrix of the new cell generation. 
+
+The function has a cyclomatic complexity of 20 but a lign count of 25, so the complexity here is not due to the length of the function, but rather the fact that we need to check all neighbours of a cell to determine whether it survives or not. So this complexity can difficulty be avoided.
+
+All different outcomes of the game are very well documented in the head comment of the file, and the different steps are commented inside the function, so it is very easy to understand the outcome from different branches. 
+
+
 #### Function SimpsonIntegration.integralEvaluation
 
 For the function integralEvaluation in Maths/SimpsonIntegration.js, lizard calculated its cyclomatic complexity as 15. When analysing the function by hand, I constructed a control flow graph with 37 edges and 24 nodes. Using the formula E - N + 2, the by-hand cyclomatic complexity was also calculated as 15. It seems lizard does account for exceptions, as while constructing my control flow diagram, I drew edges from where the exceptions were thrown to the return node at the bottom. If these are not counted, the cyclomatic complexity is significantly lower.
@@ -56,6 +66,7 @@ For the function integralEvaluation in Maths/SimpsonIntegration.js, lizard calcu
 The purpose of the function is to approximate the value of a definite integral, using Simpsons 1/3 rule. This function was one of the ones with the highest cyclomatic complexity in the repository, but its number of lines of code (26) is not particularly large. A large part of the cyclomatic complexity seems to be comming from the quite extensive input validation.
 
 The documentation of the function is quite thorough. There is a comment above the function, explaining what the function does, as well as the requirements of the different parameters. There are also comments inside the function, explaning what different parts are supposed to do. When the function throws an error, it is clearly specified by the error message what went wrong. There is extensive error checking for the input, however, I noticed that there is no check to make sure that the passed variable "func" is indeed a function. If it is not, an error will be thrown when the "func"-variable is attemped to be invoked.
+
 
 ## Refactoring
 
