@@ -11,31 +11,76 @@ The Game of Life is a cellular automaton devised by the British mathematician Jo
 /**
  * Generates the next generation for a given state of Conway's Game of Life.
  */
-export function newGeneration (cells) {
+export function newGeneration (cells, __COVERAGE__) {
   const nextGeneration = []
   for (let i = 0; i < cells.length; i++) {
+    __COVERAGE__[0] = true;
     const nextGenerationRow = []
     for (let j = 0; j < cells[i].length; j++) {
+      __COVERAGE__[2] = true;
       // Get the number of living neighbours
       let neighbourCount = 0
-      if (i > 0 && j > 0) neighbourCount += cells[i - 1][j - 1]
-      if (i > 0) neighbourCount += cells[i - 1][j]
-      if (i > 0 && j < cells[i].length - 1) neighbourCount += cells[i - 1][j + 1]
-      if (j > 0) neighbourCount += cells[i][j - 1]
-      if (j < cells[i].length - 1) neighbourCount += cells[i][j + 1]
-      if (i < cells.length - 1 && j > 0) neighbourCount += cells[i + 1][j - 1]
-      if (i < cells.length - 1) neighbourCount += cells[i + 1][j]
-      if (i < cells.length - 1 && j < cells[i].length - 1) neighbourCount += cells[i + 1][j + 1]
+      if (i > 0 && j > 0) {
+        __COVERAGE__[4] = true;
+        neighbourCount += cells[i - 1][j - 1]
+      }
+      else __COVERAGE__[5] = true
+
+      if (i > 0) {
+        __COVERAGE__[6] = true;
+        neighbourCount += cells[i - 1][j]
+      }
+      else __COVERAGE__[7] = true;
+      
+      if (i > 0 && j < cells[i].length - 1) {
+        __COVERAGE__[8] = true;
+        neighbourCount += cells[i - 1][j + 1]
+      }
+      else __COVERAGE__[9] = true;
+
+      if (j > 0) {
+        __COVERAGE__[10] = true;
+        neighbourCount += cells[i][j - 1]
+      }
+      else __COVERAGE__[11] = true;
+
+      if (j < cells[i].length - 1) {
+        __COVERAGE__[12] = true;
+        neighbourCount += cells[i][j + 1]
+      }
+      else __COVERAGE__[13] = true;
+
+      if (i < cells.length - 1 && j > 0) {
+        __COVERAGE__[14] = true;
+        neighbourCount += cells[i + 1][j - 1]
+      }
+      else __COVERAGE__[15] = true;
+
+      if (i < cells.length - 1) {
+        __COVERAGE__[16] = true;
+        neighbourCount += cells[i + 1][j]
+      }
+      else __COVERAGE__[17] = true;
+
+      if (i < cells.length - 1 && j < cells[i].length - 1) {
+        __COVERAGE__[18] = true;
+        neighbourCount += cells[i + 1][j + 1]
+      }
+      else __COVERAGE__[19] = true;
 
       // Decide whether the cell is alive or dead
       const alive = cells[i][j] === 1
       if ((alive && neighbourCount >= 2 && neighbourCount <= 3) || (!alive && neighbourCount === 3)) {
+        __COVERAGE__[20] = true;
         nextGenerationRow.push(1)
       } else {
+        __COVERAGE__[21] = true;
         nextGenerationRow.push(0)
       }
     }
+    __COVERAGE__[3] = true;
     nextGeneration.push(nextGenerationRow)
   }
+  __COVERAGE__[1] = true;
   return nextGeneration
 }
