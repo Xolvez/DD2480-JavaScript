@@ -50,6 +50,17 @@ This function is more complex than it needs to be. It uses `if` statements to de
 CCN  =  E - N + 2  =  41 - 30 + 2  =  13
 
 
+#### Function `PrimMST._shiftDown` (39 NLOC, 12 CCN):
+
+This function is part of PrimMST, which generates a Minimum Spanning Tree (MST) of a graph using Prim's Algorithm. To order the weighted edges, a Minimum Binary Heap is used to implement the class Priority Queue. `_shiftDown` is a method of this class which takes as argument the position of a node and shifts it down in the heap to a correct position (ie all of its parents should have smaller values and all of its children greater values).
+
+This function has a cyclomatic complexity number of 12 (CCN = E - N + 2 x P = 32 - 22 + 2 x 1 = 12). When computing the CCN by hand, we find the same result as "lizard" if we take into account exceptions with their `try {} catch () {}` statements, and we consider clauses individually in every predicate. This function also has a high number of ligns of code compared to the others in the class, so it seems in this case that NLOC and CCN are correlated.
+
+The complexity of the function could be largely avoided by adding an auxiliary function to get the priorities of the children of a node. We could also avoid checking if the children exist because we already have that information from the priority, which is infinite if a node doesn't exist.
+
+The different outcomes of taking branches in this function are not at all documented, we only have a comment at the top of the method to indicate what it does, but no indications are given inside the function.
+
+
 #### Function `ConwaysGameOfLife.newGeneration` (25 NLOC, 20 CCN):
 
 This function implements the famous Game Of Life by computing the next generation of cells from the current one. It takes as argument an integer matrix representing the alive cells with value 1 and dead cells with value 0, and evaluates which cells survive or not according to the status of their neighbours. It returns the matrix of the new cell generation. 
