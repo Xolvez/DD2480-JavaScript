@@ -184,6 +184,10 @@ Extends the testing with a case where the input array consists of multiple eleme
 
 Extends the testing with a case where the input array consists of the positive and negative extreme values for integers in descending order. Increases the branch coverage to 100%.
 
+#### Function `RailwayTimeConversion.RailwayTimeConversion` (62.5% branch coverage):
+
+Extends the testing with two cases which test the railway time conversion when hour is 12 at PM and AM. Increases the branch coverage to 87.5%.
+
 ## Self-assessment: Way of working
 
 Current state according to the Essence standard: ...
