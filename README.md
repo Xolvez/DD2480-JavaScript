@@ -103,6 +103,14 @@ The purpose of the function is to approximate the value of a definite integral, 
 
 The documentation of the function is quite thorough. There is a comment above the function, explaining what the function does, as well as the requirements of the different parameters. There are also comments inside the function, explaning what different parts are supposed to do. When the function throws an error, it is clearly specified by the error message what went wrong. There is extensive error checking for the input, however, I noticed that there is no check to make sure that the passed variable "func" is indeed a function. If it is not, an error will be thrown when the "func"-variable is attemped to be invoked.
 
+#### Function `DateDayDifference.DateDayDifference` (14 NLOC, 11 CCN):
+
+The purpose of this function is to calculate the amount of days that differ between two dates. Input are two dates of type string. Output is the number of days between the given dates of type Integer. Lizard counts the cyclic complexity to 11 and the lines of code to 14.
+
+When I calculate the cyclic complexity by hand using McCabe’s complexity metric I get the following: M = 10 - 3 + 2 = 9 compared to Lizards 11
+
+The code is well documented including the function’s purpose as well as text describing what each line of code does which makes it easy to understand. 
+
 
 ## Refactoring
 
