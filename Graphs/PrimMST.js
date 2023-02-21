@@ -66,8 +66,7 @@ class PriorityQueue {
 
     if (parentPos >= 0 && parentPriority > currPriority) {
       this._shiftUp(currPos)
-    } else if (child2Pos < this._heap.length &&
-      (child1Priority < currPriority || child2Priority < currPriority)) {
+    } else if (child1Priority < currPriority || child2Priority < currPriority) {
       this._shiftDown(currPos)
     }
   }
@@ -102,7 +101,7 @@ class PriorityQueue {
       return
     }
 
-    while ((child1Priority < currPriority || child2Priority < currPriority)) {
+    while (child1Priority < currPriority || child2Priority < currPriority) {
       if (child1Priority < currPriority && child1Priority < child2Priority) {
         this._swap(child1Pos, currPos)
         currPos = child1Pos
