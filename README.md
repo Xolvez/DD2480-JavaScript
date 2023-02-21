@@ -49,6 +49,12 @@ This function is more complex than it needs to be. It uses `if` statements to de
 
 CCN  =  E - N + 2  =  41 - 30 + 2  =  13
 
+#### Function `Timing-Functions/GetMonthDays.getMonthDays`:
+
+The purpose of this function is to, given a number of a month and a year, return the number of days that month, that year. The function has 17 NLOC and a cyclomatic complexity of 10, as counted by lizard. The function is not overly complex, but could probably be made a bit less complex quite easily. For example, when checking if the input month is valid, one could simply check if it is between 1 and 12 (inclusive). This would only require 2 checks, instead of the three, even more time consuming checks, that it is doing now. To me it would also make sense to store the number of days for each month in an array of length 12, and simply do a lookup, using the month as the index. Lastly, add 1 day if the number of the month is 2 and it is a leap year.
+
+The documentation for this function is lacking. The calculation to check for leap year is not intuitive at all and I had to google when leap years occur to have a chance of understanding what it was doing.
+
 #### Function `ConvexHullGraham.convexHull` (NLOC 37, CCN 13):
 The purpose of this function is to find the convex hull of a finite set of points in the plane with time complexity O(n log n) using Graham Scan.
 Given a set of points in the plane, the Convex hull of the set is the smallest
