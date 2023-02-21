@@ -8,6 +8,12 @@ URL:
 
 One or two sentences describing it
 
+The Algorithms - JavaScript
+
+<https://github.com/TheAlgorithms/JavaScript>
+
+This repository contains a wide collection of different algorithms that can be used for problems such as conversions, graphs, mathematics, searches and so on.
+
 ## Onboarding experience
 
 Did it build and run as documented?
