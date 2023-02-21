@@ -149,6 +149,16 @@ This function can be refactored by replacing the `if-else` statements with five 
 And since the invalid input is checked before this function is called(`hueSection` < 0 and `hueSection` > 6), we don't need to check them again.
 Making this adjustment can cut the cyclomatic complexity from 11 to 5.
 
+#### Function `PrimMST._shiftDown`:
+
+The complexity of the function comes mainly from two things:
+- computation of the priorities of the children of a node, which is done multiple times
+- checking the existence of the children, which is not necessary because we already have that information from the priority, which is infinite if a node doesn't exist.
+
+A refactoring plan could be to:
+- add an auxiliary function to compute the priority of the children of a node
+- remove all assertions like `child2Pos < this._heap.length` which would also avoid the last if statement
+
 ## Coverage
 
 ### Tools
