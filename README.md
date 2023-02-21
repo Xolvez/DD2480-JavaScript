@@ -208,6 +208,17 @@ Branch 16 was not covered.
 
 The biggest limitation of the tool at the moment is that it requires the user to manually add logging lines in the target function. The results are inconsistent compared to the measurement with `npm test -- --coverage` which only detects that branch indices `6` and `14` are uncovered. For example, it seems like it does not consider the branches that correspond to loops that was entirely skipped, such as branch index `5`.
 
+
+#### Function `ConvexHullGraham.convexHull`
+
+Using the above-mentioned coverage tool with the tests results in the following output:
+```
+Branch 0 was not covered.
+```
+We measure the coverage for ConvexHullGraham.convexHull in a seperated branch. See this commit:
+https://github.com/Xolvez/DD2480-JavaScript/commit/25fdc651a26a00f2c5a7b74cfcb38ffe9f2d1d8e
+
+
 #### Function `ConwaysGameOfLife.newGeneration` (25 NLOC, 20 CCN):
 
 The ad-hoc coverage tool can be found in the following commit:
@@ -220,6 +231,7 @@ When used with the current test suite, we get the following output:
 Since the function `newGeneration` is quite straighforward (no exception handling or tertiary operators), our coverage tool only handles simple branches here. It is very limited since it requires the user to add lines in the code of the function to check visited branches, so we would also need to udpate it if we were to change the program. 
 
 However, the result here is consistent with the automatic tool we have been using (`npm test` which calls `jest`), ie it gives 100% branch coverage for this function.
+
 
 ## Coverage improvement
 
