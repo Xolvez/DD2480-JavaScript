@@ -108,7 +108,7 @@ The documentation of the function is quite thorough. There is a comment above th
 
 The purpose of this function is to calculate the maximum product och three integers in a given array of integers. Input is an array of integers. Output is an integer. With this specific implementation (Greedy approach). Lizard counts the cyclic complexity to 11, and lines of code to 30. 
 
-When I calculate the cyclic complexity by hand using McCabe’s complexity metric I get the following: M = 9 - 2 + 2 = 9 compared to Lizards 11. 
+When I calculate the cyclic complexity by hand using McCabe’s complexity metric I get the following: M = 10 - 1 + 2 = 9, which is the same as lizard. This is without counting the throw error. 
 
 There’s documentation of the function's purpose as well as parameters and return values. Although there is not that much documentation describing other parts of the code. This may not be necessary but would have been a good addition to explain the different paths in the code. 
 
