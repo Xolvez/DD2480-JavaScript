@@ -244,6 +244,10 @@ Extends the testing with a case where the input array consists of multiple eleme
 
 Extends the testing with a case where the input array consists of the positive and negative extreme values for integers in descending order. Increases the branch coverage to 100%.
 
+#### Function `RgbHsvConversion.hsvToRgb` and `RgbHsvConversion.rgbToHsv` (90% branch coverage):
+
+Extends the testing with cases where the function will throw exceptions. Increases the coverage to 100%.
+
 
 ## Self-assessment: Way of working
 
