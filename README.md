@@ -159,7 +159,7 @@ A refactoring plan could be to:
 - add an auxiliary function to compute the priority of the children of a node
 - remove all assertions like `child2Pos < this._heap.length` which would also avoid the last if statement
 
-The refactoring was done in this [commit](https://github.com/Xolvez/DD2480-JavaScript/commit/c0082721cc4d026f1d0e0194ccfe569c747ccf8d). It decreased the CCN of the method _shiftDown from 13 to 7, along with a big reduce in NLOC (from 46 to 28).
+The refactoring was done in this [commit](https://github.com/Xolvez/DD2480-JavaScript/commit/0600e9aa6bd6dccab7a9bb9a3edd7e81d88bd881). It decreased the CCN of the method _shiftDown from 13 to 6, along with a big reduce in NLOC (from 46 to 23).
 
 ## Coverage
 
