@@ -210,6 +210,13 @@ git diff ...
 
 Number of test cases added: two per team member (P) or at least four (P+).
 
+
+### Function `Sorts/InsertionSort.insertionSort`:
+
+This function had 0 tests written for it, and thus the function itself had 0% coverage. The file, had a statement-, branch- and lines-coverage of 63.15%, 66.66% respectively 62.5%. After the added tests, all of these numbers was 100%, as measured by lizard. 
+The tests were implemented in the commit [e647b5d52f2d640e43d56ae6874818b0a82a3f73](https://github.com/Xolvez/DD2480-JavaScript/commit/e647b5d52f2d640e43d56ae6874818b0a82a3f73).
+
+
 #### Function `FibonacciSearch.fibonacciSearch` (75% branch coverage):
 
 <https://github.com/Xolvez/DD2480-JavaScript/commit/f2abd7138883993f10f7ba3facd437d4d31d4e95>
@@ -229,6 +236,7 @@ Extends the testing with a case where the input array consists of multiple eleme
 <https://github.com/Xolvez/DD2480-JavaScript/commit/f5514c2c0ffb86beabff01ca01d6f9fe168d1777>
 
 Extends the testing with a case where the input array consists of the positive and negative extreme values for integers in descending order. Increases the branch coverage to 100%.
+
 
 ## Self-assessment: Way of working
 
