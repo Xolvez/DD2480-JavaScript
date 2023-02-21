@@ -44,6 +44,7 @@ class PriorityQueue {
   }
 
   getPriorityOrInfinite (position) {
+    // Returns priority of the node, or Infinite if no node corresponds to this position
     if (position >= 0 && position < this._heap.length) {
       return this._heap[position][1]
     }
