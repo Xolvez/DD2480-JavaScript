@@ -149,7 +149,7 @@ This function can be refactored by replacing the `if-else` statements with five 
 And since the invalid input is checked before this function is called(`hueSection` < 0 and `hueSection` > 6), we don't need to check them again.
 Making this adjustment can cut the cyclomatic complexity from 11 to 5.
 
-#### Function `PrimMST._shiftDown`:
+#### Function `PrimMST._shiftDown` (from 13 CCN to 7 CCN):
 
 The complexity of the function comes mainly from two things:
 - computation of the priorities of the children of a node, which is done multiple times
@@ -158,6 +158,8 @@ The complexity of the function comes mainly from two things:
 A refactoring plan could be to:
 - add an auxiliary function to compute the priority of the children of a node
 - remove all assertions like `child2Pos < this._heap.length` which would also avoid the last if statement
+
+The refactoring was done in this [commit](https://github.com/Xolvez/DD2480-JavaScript/commit/c0082721cc4d026f1d0e0194ccfe569c747ccf8d). It decreased the CCN of the method _shiftDown from 13 to 7, along with a big reduce in NLOC (from 46 to 28).
 
 ## Coverage
 
