@@ -68,6 +68,15 @@ class PriorityQueue {
     }
   }
 
+  _getPriorityOrInfinite (position) {
+    if (position >= 0 && position < this._heap.length) {
+      return this._heap[position][1]
+    }
+    else {
+      return Infinity
+    }
+  }
+
   _shiftUp (position) {
     // Helper function to shift up a node to proper position (equivalent to bubbleUp)
     let currPos = position
