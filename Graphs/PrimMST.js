@@ -102,8 +102,7 @@ class PriorityQueue {
     }
 
 
-    while (child2Pos < this._heap.length &&
-      (child1Priority < currPriority || child2Priority < currPriority)) {
+    while ((child1Priority < currPriority || child2Priority < currPriority)) {
       if (child1Priority < currPriority && child1Priority < child2Priority) {
         this._swap(child1Pos, currPos)
         currPos = child1Pos
@@ -117,7 +116,7 @@ class PriorityQueue {
       currPriority = this.getPriorityOrInfinite(currPos)
     }
     this.keys[this._heap[currPos][0]] = currPos
-    if (child1Pos < this._heap.length && child1Priority < currPriority) {
+    if (child1Priority < currPriority) {
       this._swap(child1Pos, currPos)
       this.keys[this._heap[child1Pos][0]] = child1Pos
     }
