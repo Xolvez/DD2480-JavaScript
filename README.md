@@ -157,6 +157,9 @@ Using the above-mentioned coverage tool with the tests results in the following 
 ```
 Branch 0 was not covered.
 ```
+We measure the coverage for ConvexHullGraham.convexHull in a seperated branch. See this commit:
+https://github.com/Xolvez/DD2480-JavaScript/commit/25fdc651a26a00f2c5a7b74cfcb38ffe9f2d1d8e
+
 
 
 ## Coverage improvement
