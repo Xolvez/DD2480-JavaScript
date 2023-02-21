@@ -299,13 +299,15 @@ Extends the testing with cases where the function will throw exceptions. Increas
 
 ## Self-assessment: Way of working
 
-Current state according to the Essence standard: ...
+There is debate on the state actually reached in the Essence standard, either Working Well or In Place.
 
-Was the self-assessment unanimous? Any doubts about certain items?
+Indeed, we can all agree that we reached the In Place state, because after our previous experiences in different groups we had no trouble choosing communication tools (Discord in our case) and establishing practices for communication (frequence of meetings, delay to answer messages, etc), commit messages conventions etc. 
+Some of us had to learn about JavaScript and Node, but we shared a lot of our questions and we managed to understand all necessary tools as a team. 
+We also adapted our practices, for instance we did a lot less pair programming on this project as we expected, but we communicated a lot via written messages to ask questions and keep everyone update of the state of the project.
 
-How have you improved so far?
+However, we can argue than the Working Well state has not been reached because on such a short project we cannot say that we had time to adapt our Way of Working to different contexts, so the first item might not be checked. 
 
-Where is potential for improvement?
+Another item that we had doubts about and that could allow room for improvement is to develop procedures are to handle feedback on the team’s way of working. Indeed, we regularly communicated on our way of working when we had team meetings, but it was more of an informal procedure so maybe we could add a stricter procedure like a channel on our communication platform that would be dedicated to discussing our Way of Working and giving feedback.
 
 ## Overall experience
 
