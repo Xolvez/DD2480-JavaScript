@@ -49,6 +49,37 @@ This function is more complex than it needs to be. It uses `if` statements to de
 
 CCN  =  E - N + 2  =  41 - 30 + 2  =  13
 
+#### Function `Timing-Functions/GetMonthDays.getMonthDays`:
+
+The purpose of this function is to, given a number of a month and a year, return the number of days that month, that year. The function has 17 NLOC and a cyclomatic complexity of 10, as counted by lizard. The function is not overly complex, but could probably be made a bit less complex quite easily. For example, when checking if the input month is valid, one could simply check if it is between 1 and 12 (inclusive). This would only require 2 checks, instead of the three, even more time consuming checks, that it is doing now. To me it would also make sense to store the number of days for each month in an array of length 12, and simply do a lookup, using the month as the index. Lastly, add 1 day if the number of the month is 2 and it is a leap year.
+
+The documentation for this function is lacking. The calculation to check for leap year is not intuitive at all and I had to google when leap years occur to have a chance of understanding what it was doing.
+
+#### Function `ConvexHullGraham.convexHull` (NLOC 37, CCN 13):
+The purpose of this function is to find the convex hull of a finite set of points in the plane with time complexity O(n log n) using Graham Scan.
+Given a set of points in the plane, the Convex hull of the set is the smallest
+convex polygon that contains all the points of it.
+
+This function's cyclomatic complexity can be reduced.
+Firstly, it uses two `for` loop to slice copy and reverse the array. This can be achieved with `slice()` and `reverse()`.
+Secondly, the process of updating `upperPoints` and `lowerPoints` can be put into sub-functions, which reduces the complexity and make the function more readable.
+Additionally, the function has a redundant `if` condition that can be removed.
+
+The cyclomatic complexity is:
+
+CCN  =  E - N + 2  = 44 - 33 + 2  =  13
+
+#### Function `RgbHsvConversion.getRgbBySection` (NLOC 29, CCN 11):
+
+Lizard calculated the cyclomatic complexity of `RgbHsvConversion.getRgbBySection` as 11.
+
+The purpose of this function is to convert the HSV-representation to the RGB-representation. The original input is the hue, saturation and brightness-value of the color. Before `RgbHsvConversion.getRgbBySection` is called, four intermediate value is calculated and used as the input of this function. Output is the red, green and blue value.
+
+This function is more complex than it needs to be. It uses `if-else` statements to determine the calculation method of RGB value according to the value of `hueSection`. But more than half of the conditions is unnecessary.  As a result of that the cyclic complexity number is inappropriately high.
+
+Manually count the cyclomatic complexity:
+
+CCN = E - N + 2 = 30 - 21 + 2 = 11
 
 #### Function `PrimMST._shiftDown` (39 NLOC, 12 CCN):
 
@@ -101,7 +132,22 @@ Before the refactoring the function had 24 NLOC, 18 CCN and 50% branch coverage.
 
 As mentioned earlier, a large part of the complexity of this function comes from checking for invalid input. By creating and calling another function, `validateInput`, which handles all input validation and error throwing, the cyclomatic complexity can be reduced significantly. In fact, making this simple adjustment almost cuts the cyclomatic complexity in half, reducing it from 15 down to just 8.
 
+
 The refractoring was carried out in the commit [f08ccc95131a607eb9013abd2abf56642a7f861d](https://github.com/Xolvez/DD2480-JavaScript/commit/f08ccc95131a607eb9013abd2abf56642a7f861d). Before the refractor, the function had 26 NLOC and a cyclomatic complexity of 15. After the refractor, the function has 22 NLOC and a cyclomatic complexity of 8.
+
+### Function `ConvexHullGraham.convexHull`:
+As mentioned earlier, this function's cyclomatic complexity can be reduced.
+Firstly, it uses two `for` loop to slice copy and reverse the array. This can be achieved with `slice()` and `reverse()`, which can reduce the complexity by 2. 
+Secondly, the process of updating `upperPoints` and `lowerPoints` can be put into sub-functions, which reduces the complexity by 4 and make the function more readable.
+Additionally, the function has a redundant `if` condition that can be removed, which reduced the complexity by 1.
+Making these adjustments should reduce the cyclomatic complexity from 13 to 6.
+
+
+### Function `RgbHsvConversion.getRgbBySection`:
+
+This function can be refactored by replacing the `if-else` statements with five `if` statements.
+And since the invalid input is checked before this function is called(`hueSection` < 0 and `hueSection` > 6), we don't need to check them again.
+Making this adjustment can cut the cyclomatic complexity from 11 to 5.
 
 ## Coverage
 
@@ -164,6 +210,20 @@ git diff ...
 
 Number of test cases added: two per team member (P) or at least four (P+).
 
+
+### Function `SimpsonIntegration.integralEvaluation`:
+
+The coverage of this function was quite low, as almost no tests for invalid input had been written. 
+I implemented tests that took all branches, and increased the coverage to 100% for statements, branches and lines. Before the new tests, the statement- and branch-coverage was 79.41% respectively 69.56%. 
+The tests were implemented in the commit [10dededbbeb3fe01e87282c638b83d2066aedb89](https://github.com/Xolvez/DD2480-JavaScript/commit/10dededbbeb3fe01e87282c638b83d2066aedb89).
+
+
+### Function `Sorts/InsertionSort.insertionSort`:
+
+This function had 0 tests written for it, and thus the function itself had 0% coverage. The file, had a statement-, branch- and lines-coverage of 63.15%, 66.66% respectively 62.5%. After the added tests, all of these numbers was 100%, as measured by lizard. 
+The tests were implemented in the commit [e647b5d52f2d640e43d56ae6874818b0a82a3f73](https://github.com/Xolvez/DD2480-JavaScript/commit/e647b5d52f2d640e43d56ae6874818b0a82a3f73).
+
+
 #### Function `FibonacciSearch.fibonacciSearch` (75% branch coverage):
 
 <https://github.com/Xolvez/DD2480-JavaScript/commit/f2abd7138883993f10f7ba3facd437d4d31d4e95>
@@ -187,6 +247,11 @@ Extends the testing with a case where the input array consists of the positive a
 #### Function `RailwayTimeConversion.RailwayTimeConversion` (62.5% branch coverage):
 
 Extends the testing with two cases which test the railway time conversion when hour is 12 at PM and AM. Increases the branch coverage to 87.5%.
+
+#### Function `RgbHsvConversion.hsvToRgb` and `RgbHsvConversion.rgbToHsv` (90% branch coverage):
+
+Extends the testing with cases where the function will throw exceptions. Increases the coverage to 100%.
+
 
 ## Self-assessment: Way of working
 
