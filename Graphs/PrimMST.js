@@ -1,3 +1,5 @@
+import { info } from "console"
+
 // Priority Queue Helper functions
 function getParentPosition (position) {
   // Get the parent node of the current node
@@ -41,24 +43,25 @@ class PriorityQueue {
     return (key in this.keys)
   }
 
+  getPriorityOrInfinite (position) {
+    if (position >= 0 && position < this._heap.length) {
+      return this._heap[position][1]
+    }
+    else {
+      return Infinity
+    }
+  }
+
   update (key, priority) {
     // Update the priority of the given element (equivalent to decreaseKey)
     const currPos = this.keys[key]
     this._heap[currPos][1] = priority
     const parentPos = getParentPosition(currPos)
-    const currPriority = this._heap[currPos][1]
-    let parentPriority = Infinity
-    if (parentPos >= 0) {
-      parentPriority = this._heap[parentPos][1]
-    }
+    const currPriority = this.getPriorityOrInfinite(currPos)
+    const parentPriority = this.getPriorityOrInfinite(parentPos)
     const [child1Pos, child2Pos] = getChildrenPosition(currPos)
-    let [child1Priority, child2Priority] = [Infinity, Infinity]
-    if (child1Pos < this._heap.length) {
-      child1Priority = this._heap[child1Pos][1]
-    }
-    if (child2Pos < this._heap.length) {
-      child2Priority = this._heap[child2Pos][1]
-    }
+    const child1Priority = this.getPriorityOrInfinite(child1Pos)
+    const child2Priority = this.getPriorityOrInfinite(child2Pos)
 
     if (parentPos >= 0 && parentPriority > currPriority) {
       this._shiftUp(currPos)
@@ -68,35 +71,20 @@ class PriorityQueue {
     }
   }
 
-  _getPriorityOrInfinite (position) {
-    if (position >= 0 && position < this._heap.length) {
-      return this._heap[position][1]
-    }
-    else {
-      return Infinity
-    }
-  }
-
   _shiftUp (position) {
     // Helper function to shift up a node to proper position (equivalent to bubbleUp)
     let currPos = position
     let parentPos = getParentPosition(currPos)
-    let currPriority = this._heap[currPos][1]
-    let parentPriority = Infinity
-    if (parentPos >= 0) {
-      parentPriority = this._heap[parentPos][1]
-    }
+    let currPriority = this.getPriorityOrInfinite(currPos)
+    let parentPriority = this.getPriorityOrInfinite(parentPos)
 
     while (parentPos >= 0 && parentPriority > currPriority) {
       this._swap(currPos, parentPos)
       currPos = parentPos
       parentPos = getParentPosition(currPos)
-      currPriority = this._heap[currPos][1]
-      try {
-        parentPriority = this._heap[parentPos][1]
-      } catch (error) {
-        parentPriority = Infinity
-      }
+      currPriority = this.getPriorityOrInfinite(currPos)
+      parentPriority = this.getPriorityOrInfinite(parentPos)
+
     }
     this.keys[this._heap[currPos][0]] = currPos
   }
@@ -105,19 +93,14 @@ class PriorityQueue {
     // Helper function to shift down a node to proper position (equivalent to bubbleDown)
     let currPos = position
     let [child1Pos, child2Pos] = getChildrenPosition(currPos)
-    let [child1Priority, child2Priority] = [Infinity, Infinity]
-    if (child1Pos < this._heap.length) {
-      child1Priority = this._heap[child1Pos][1]
-    }
-    if (child2Pos < this._heap.length) {
-      child2Priority = this._heap[child2Pos][1]
-    }
-    let currPriority
-    try {
-      currPriority = this._heap[currPos][1]
-    } catch {
+    let child1Priority = this.getPriorityOrInfinite(child1Pos)
+    let child2Priority = this.getPriorityOrInfinite(child2Pos)
+    let currPriority = this.getPriorityOrInfinite(currPos)
+
+    if (currPriority == Infinity) {
       return
     }
+
 
     while (child2Pos < this._heap.length &&
       (child1Priority < currPriority || child2Priority < currPriority)) {
@@ -129,20 +112,9 @@ class PriorityQueue {
         currPos = child2Pos
       }
       [child1Pos, child2Pos] = getChildrenPosition(currPos)
-      try {
-        child1Priority = this._heap[child1Pos][1]
-      }
-      catch (error) {
-        child1Priority = Infinity
-      }
-      try {
-        child2Priority = this._heap[child2Pos][1]
-      }
-      catch (error) {
-        child2Priority = Infinity
-      }
-
-      currPriority = this._heap[currPos][1]
+      child1Priority = this.getPriorityOrInfinite(child1Pos)
+      child2Priority = this.getPriorityOrInfinite(child2Pos)
+      currPriority = this.getPriorityOrInfinite(currPos)
     }
     this.keys[this._heap[currPos][0]] = currPos
     if (child1Pos < this._heap.length && child1Priority < currPriority) {
