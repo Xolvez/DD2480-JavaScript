@@ -211,6 +211,13 @@ git diff ...
 Number of test cases added: two per team member (P) or at least four (P+).
 
 
+### Function `SimpsonIntegration.integralEvaluation`:
+
+The coverage of this function was quite low, as almost no tests for invalid input had been written. 
+I implemented tests that took all branches, and increased the coverage to 100% for statements, branches and lines. Before the new tests, the statement- and branch-coverage was 79.41% respectively 69.56%. 
+The tests were implemented in the commit [10dededbbeb3fe01e87282c638b83d2066aedb89](https://github.com/Xolvez/DD2480-JavaScript/commit/10dededbbeb3fe01e87282c638b83d2066aedb89).
+
+
 ### Function `Sorts/InsertionSort.insertionSort`:
 
 This function had 0 tests written for it, and thus the function itself had 0% coverage. The file, had a statement-, branch- and lines-coverage of 63.15%, 66.66% respectively 62.5%. After the added tests, all of these numbers was 100%, as measured by lizard. 
