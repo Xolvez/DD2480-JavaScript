@@ -97,32 +97,33 @@ function getRgbBySection (hueSection, chroma, matchValue, secondLargestComponent
   let red
   let green
   let blue
-
-  if (hueSection >= 0 && hueSection <= 1) {
-    red = convertToInt(chroma + matchValue)
-    green = convertToInt(secondLargestComponent + matchValue)
-    blue = convertToInt(matchValue)
-  } else if (hueSection > 1 && hueSection <= 2) {
-    red = convertToInt(secondLargestComponent + matchValue)
-    green = convertToInt(chroma + matchValue)
-    blue = convertToInt(matchValue)
-  } else if (hueSection > 2 && hueSection <= 3) {
-    red = convertToInt(matchValue)
-    green = convertToInt(chroma + matchValue)
-    blue = convertToInt(secondLargestComponent + matchValue)
-  } else if (hueSection > 3 && hueSection <= 4) {
-    red = convertToInt(matchValue)
-    green = convertToInt(secondLargestComponent + matchValue)
-    blue = convertToInt(chroma + matchValue)
-  } else if (hueSection > 4 && hueSection <= 5) {
+  red = convertToInt(chroma + matchValue)
+  green = convertToInt(matchValue)
+  blue = convertToInt(secondLargestComponent + matchValue)
+  if (hueSection <= 5) {
     red = convertToInt(secondLargestComponent + matchValue)
     green = convertToInt(matchValue)
     blue = convertToInt(chroma + matchValue)
-  } else {
-    red = convertToInt(chroma + matchValue)
-    green = convertToInt(matchValue)
+  }
+  if (hueSection <= 4) {
+    red = convertToInt(matchValue)
+    green = convertToInt(secondLargestComponent + matchValue)
+    blue = convertToInt(chroma + matchValue)
+  }
+  if (hueSection <= 3) {
+    red = convertToInt(matchValue)
+    green = convertToInt(chroma + matchValue)
     blue = convertToInt(secondLargestComponent + matchValue)
   }
-
+  if (hueSection <= 2) {
+    red = convertToInt(secondLargestComponent + matchValue)
+    green = convertToInt(chroma + matchValue)
+    blue = convertToInt(matchValue)
+  }
+  if (hueSection <= 1) {
+    red = convertToInt(chroma + matchValue)
+    green = convertToInt(secondLargestComponent + matchValue)
+    blue = convertToInt(matchValue)
+  }
   return [red, green, blue]
 }
