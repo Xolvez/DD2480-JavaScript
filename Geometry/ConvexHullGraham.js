@@ -24,9 +24,11 @@ function orientation (a, b, c) {
   // Colinear
   return 0
 }
-function convexHull (points) {
+
+function convexHull (points, __COVERAGE__) {
   const pointsLen = points.length
   if (pointsLen <= 2) {
+    __COVERAGE__[0] = true
     throw new Error('Minimum of 3 points is required to form closed polygon!')
   }
 
@@ -34,41 +36,46 @@ function convexHull (points) {
   const p1 = points[0]; const p2 = points[pointsLen - 1]
 
   // Divide Hull in two halves
-  let upperPoints = []
-  let lowerPoints = []
+  const upperPoints = []; const lowerPoints = []
 
   upperPoints.push(p1)
   lowerPoints.push(p1)
 
   for (let i = 1; i < pointsLen; i++) {
+    __COVERAGE__[1] = true
     if (i === pointsLen - 1 || orientation(p1, points[i], p2) !== -1) {
-      upperPoints = Array.from(updateUpperPoints(upperPoints, points, i))
+      __COVERAGE__[2] = true
+      let upLen = upperPoints.length
+
+      while (upLen >= 2 && orientation(upperPoints[upLen - 2], upperPoints[upLen - 1], points[i]) === -1) {
+        __COVERAGE__[3] = true
+        upperPoints.pop()
+        upLen = upperPoints.length
+      }
       upperPoints.push(points[i])
     }
-    if (orientation(p1, points[i], p2) !== 1) {
-      lowerPoints = Array.from(updateLowerPoints(lowerPoints, points, i))
+    if (i === pointsLen - 1 || orientation(p1, points[i], p2) !== 1) {
+      __COVERAGE__[4] = true
+      let lowLen = lowerPoints.length
+      while (lowLen >= 2 && orientation(lowerPoints[lowLen - 2], lowerPoints[lowLen - 1], points[i]) === 1) {
+        __COVERAGE__[5] = true
+        lowerPoints.pop()
+        lowLen = lowerPoints.length
+      }
       lowerPoints.push(points[i])
     }
   }
-  let hull = []
-  hull = upperPoints.slice(1, upperPoints.length - 1).concat(lowerPoints.reverse())
+  const hull = []
+  for (let i = 1; i < upperPoints.length - 1; i++) {
+    __COVERAGE__[6] = true
+    hull.push(upperPoints[i])
+  }
+  for (let i = lowerPoints.length - 1; i >= 0; i--) {
+    __COVERAGE__[7] = true
+    hull.push(lowerPoints[i])
+  }
+
   return hull
-}
-function updateUpperPoints (upperPoints, points, i) {
-  let upLen = upperPoints.length
-  while (upLen >= 2 && orientation(upperPoints[upLen - 2], upperPoints[upLen - 1], points[i]) === -1) {
-    upperPoints.pop()
-    upLen = upperPoints.length
-  }
-  return upperPoints
-}
-function updateLowerPoints (lowerPoints, points, i) {
-  let lowLen = lowerPoints.length
-  while (lowLen >= 2 && orientation(lowerPoints[lowLen - 2], lowerPoints[lowLen - 1], points[i]) === 1) {
-    lowerPoints.pop()
-    lowLen = lowerPoints.length
-  }
-  return lowerPoints
 }
 
 export { convexHull }
