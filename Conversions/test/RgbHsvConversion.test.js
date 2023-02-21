@@ -31,3 +31,48 @@ describe('rgbToHsv', () => {
     expect(approximatelyEqualHsv(rgbToHsv(128, 32, 80), [330, 0.75, 0.5])).toEqual(true)
   })
 })
+test('hsvToRgb_throw', () => {
+  expect(() => {
+    hsvToRgb(-10, 0, 0)
+  }).toThrow('hue should be between 0 and 360')
+  expect(() => {
+    hsvToRgb(377, 0, 0)
+  }).toThrow('hue should be between 0 and 360')
+
+  expect(() => {
+    hsvToRgb(5, 3, 0)
+  }).toThrow('saturation should be between 0 and 1')
+  expect(() => {
+    hsvToRgb(0, -4, 0)
+  }).toThrow('saturation should be between 0 and 1')
+
+  expect(() => {
+    hsvToRgb(0, 0, -9)
+  }).toThrow('value should be between 0 and 1')
+  expect(() => {
+    hsvToRgb(0, 0, 3)
+  }).toThrow('value should be between 0 and 1')
+})
+
+test('rgbToHsv_throw', () => {
+  expect(() => {
+    rgbToHsv(-10, 0, 0)
+  }).toThrow('red should be between 0 and 255')
+  expect(() => {
+    rgbToHsv(377, 0, 0)
+  }).toThrow('red should be between 0 and 255')
+
+  expect(() => {
+    rgbToHsv(5, -31, 0)
+  }).toThrow('green should be between 0 and 255')
+  expect(() => {
+    rgbToHsv(0, 256, 0)
+  }).toThrow('green should be between 0 and 255')
+
+  expect(() => {
+    rgbToHsv(0, 0, -9)
+  }).toThrow('blue should be between 0 and 255')
+  expect(() => {
+    rgbToHsv(0, 0, 256)
+  }).toThrow('blue should be between 0 and 255')
+})
