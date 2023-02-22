@@ -194,11 +194,11 @@ Branch 16 was not covered.
 
 The biggest limitation of the tool at the moment is that it requires the user to manually add logging lines in the target function. The results are inconsistent compared to the measurement with `npm test -- --coverage` which only detects that branch indices `6` and `14` are uncovered. For example, it seems like it does not consider the branches that correspond to loops that was entirely skipped, such as branch index `5`.
 
-#### Function `SimpsonIntegration.integralEvaluation` ([TODO] NLOC, [TODO] CCN):
+#### Function `SimpsonIntegration.integralEvaluation` (43 NLOC, 8 CCN):
 
-<[TODO]>
+The ad-hoc coverage tool for this function can be found in the branch `issue-52`, or in the commit [863f81d](https://github.com/Xolvez/DD2480-JavaScript/commit/863f81df86397b2c3d4548053682496d49180851).
 
-[TODO]
+To run the tests with the tool, execute `npm test -- Maths/test/SimpsonIntegration.test.js` in the directory `DD2480-JavaScript`. The tool calculates the branch coverage to be 77.7%, which it logs to the console. This branch coverage percentage is the same as the one given by jest. To see the coverage report by jest, run `npm test -- --coverage` in the same directory. This ad-hoc coverage tool was implemented on the refractored version of the function, but before improving the test coverage.
 
 #### Function `[TODO].[TODO]` ([TODO] NLOC, [TODO] CCN):
 
@@ -239,7 +239,7 @@ Extends the testing with a case where the input array consists of the positive a
 
 #### Function `InsertionSort.insertionSort` (0% branch coverage):
 
-This function had 0 tests written for it, and thus the function itself had 0% coverage. The file, had a statement-, branch- and lines-coverage of 63.15%, 66.66% respectively 62.5%. After the added tests, all of these numbers was 100%, as measured by lizard. 
+This function had 0 tests written for it, and thus the function itself had 0% coverage. The file, had a statement-, branch- and lines-coverage of 63.15%, 66.66% and 62.5%, respectively. After the added tests, all of these numbers was 100%, as measured by lizard. 
 The tests were implemented in the commit [e647b5d52f2d640e43d56ae6874818b0a82a3f73](https://github.com/Xolvez/DD2480-JavaScript/commit/e647b5d52f2d640e43d56ae6874818b0a82a3f73).
 
 #### Function `MaxProductOfThree.maxProductOfThree` (89% branch coverage):
