@@ -329,6 +329,8 @@ Another item that we had doubts about and that could allow room for improvement 
 
 ## Overall experience
 
-What are your main take-aways from this project? What did you learn?
+The first take-away we got from this project is that many open source projects are really difficult to work with, either because they are not well documented especially when it comes to build, test or run instructions, or because they require many dependencies. We had a lot of trouble choosing a suiting project because of that, so we feel that we have a better idea now of why it is so important to keep dependencies simple and to document a project very thoroughly. 
 
-Is there something special you want to mention here?
+This project also gave us a really good understanding of cyclomatic complexity and branch coverage because computing it by hand and building a coverage analysis tool forced us to go deep into the understanding of the control flow graph of a program and to ask ourselves which structures of our programming language were handled or not.
+
+Finally, it was really satisfying to contribute to a real open source project for those who got a patch accepted in the original project.
