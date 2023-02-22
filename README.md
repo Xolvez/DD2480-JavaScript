@@ -196,7 +196,7 @@ The biggest limitation of the tool at the moment is that it requires the user to
 
 #### Function `SimpsonIntegration.integralEvaluation` (43 NLOC, 8 CCN):
 
-The ad-hoc coverage tool for this function can be found in the branch `issue-52`.
+The ad-hoc coverage tool for this function can be found in the branch `issue-52`, or in the commit [863f81d](https://github.com/Xolvez/DD2480-JavaScript/commit/863f81df86397b2c3d4548053682496d49180851).
 
 To run the tests with the tool, execute `npm test -- Maths/test/SimpsonIntegration.test.js` in the directory `DD2480-JavaScript`. The tool calculates the branch coverage to be 77.7%, which it logs to the console. This branch coverage percentage is the same as the one given by jest. To see the coverage report by jest, run `npm test -- --coverage` in the same directory. This ad-hoc coverage tool was implemented on the refractored version of the function, but before improving the test coverage.
 
