@@ -121,14 +121,11 @@ Making these adjustments should reduce the cyclomatic complexity from 13 to 6.
 
 <https://github.com/Xolvez/DD2480-JavaScript/pull/42/commits/ee651e672519daab63e4f4dafdffcc5db9c25de8>
 
-#### Function `MaxProductOfThree.maxProductOfThree` (30 NLOC, 11 CCN):
+#### Function `MaxProductOfThree.maxProductOfThree` ([TODO] NLOC, [TODO] CCN):
 
-This function can be refactored to make it easier to understand what the functions supposed to do. Dividing the code inside of the for-loop into two new help functions called `getMaxElements` and `getMinElements` which is then called from the main function `maxProductOfThree`. 
+[TODO]
 
-The commit which implements this refactoring is located at the following link:
-<https://github.com/Xolvez/DD2480-JavaScript/compare/main...76-refactor-function-maxproductofthreemaxproductofthree>
-
-After making these changes the cyclomatic complexity is reduced from 11 to 4.7 using the lizard tool. 
+<[TODO]>
 
 #### Function `PrimMST._shiftDown` (46 NLOC, 13 CCN):
 
