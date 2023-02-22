@@ -238,6 +238,11 @@ Since the function `newGeneration` is quite straighforward (no exception handlin
 
 However, the result here is consistent with the automatic tool we have been using (`npm test` which calls `jest`), ie it gives 100% branch coverage for this function.
 
+#### Function `SimpsonIntegration.integrationEvaluation`:
+
+The ad-hoc coverage tool for this function can be found in the branch `issue-52`.
+
+To run the tests with the tool, execute `npm test -- Maths/test/SimpsonIntegration.test.js` in the directory `DD2480-JavaScript`. The tool calculates the branch coverage to be 77.7%, which it logs to the console. This branch coverage percentage is the same as the one given by jest. To see the coverage report by jest, run `npm test -- --coverage` in the same directory. This ad-hoc coverage tool was implemented on the refractored version of the function, but before improving the test coverage.
 
 ## Coverage improvement
 
