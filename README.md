@@ -322,6 +322,16 @@ The two implemented tests cover for the two exceptions that tests for invalid in
 
 The implementation improved the branch coverage from 79.16% to 91.66%
 
+#### Function `MaxProductOfThree.maxProductOfThree` (88.8% branch coverage):
+
+These two commit shows the two new tests implemented to increase the branch coverage. <https://github.com/Xolvez/DD2480-JavaScript/commit/98ba4a774bb7a5f4aca289aef565d7b87ee8ba17> and <https://github.com/Xolvez/DD2480-JavaScript/commit/f69cd831e9d03bd727975b51fa137ec4b67167cf>
+
+The first test makes sure that the program works correctly when the first element in the array is less then second element. This covers for one of the if statements in the loop. 
+
+The second test makes sure that the program works correctly when the all elements in the array are of the same value. This covers the if statement on line 31
+
+The implementation improved the branch coverage from 88.8% to 100%
+
 ## Self-assessment: Way of working
 
 There is debate on the state actually reached in the Essence standard, either Working Well or In Place.
