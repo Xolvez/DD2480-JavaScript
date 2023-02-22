@@ -49,9 +49,15 @@ The function has a cyclomatic complexity of 20 but a lign count of 25, so the co
 
 All different outcomes of the game are very well documented in the head comment of the file, and the different steps are commented inside the function, so it is very easy to understand the outcome from different branches. 
 
-#### Function `DateDayDifference.DateDayDifference` ([TODO] NLOC, [TODO] CCN):
+#### Function `DateDayDifference.DateDayDifference` (14 NLOC, 11 CCN):
 
-[TODO]
+The purpose of this function is to calculate the amount of days that differ between two dates. Input are two dates of type string. Output is the number of days between the given dates of type Integer. Lizard counts the cyclic complexity to 11 and the lines of code to 14.
+
+When I calculate the cyclic complexity by hand using McCabe’s complexity metric I get the following: M = 10 - 3 + 2 = 9 compared to Lizards 11
+
+The number of lines is only 14 so that is most likely not a problem. Instead of a lot of comparisons to figure out if the date is valid, an array of all the months as index which store the number of days could make it a lot clearer.
+
+The code is well documented including the function’s purpose as well as text describing what each line of code does which makes it easy to understand. 
 
 #### Function `FlashSort.flashSort` (58 NLOC, 15 CCN):
 
