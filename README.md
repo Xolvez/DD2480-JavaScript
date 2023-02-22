@@ -49,9 +49,15 @@ The function has a cyclomatic complexity of 20 but a lign count of 25, so the co
 
 All different outcomes of the game are very well documented in the head comment of the file, and the different steps are commented inside the function, so it is very easy to understand the outcome from different branches. 
 
-#### Function `DateDayDifference.DateDayDifference` ([TODO] NLOC, [TODO] CCN):
+#### Function `DateDayDifference.DateDayDifference` (14 NLOC, 11 CCN):
 
-[TODO]
+The purpose of this function is to calculate the amount of days that differ between two dates. Input are two dates of type string. Output is the number of days between the given dates of type Integer. Lizard counts the cyclic complexity to 11 and the lines of code to 14.
+
+When I calculate the cyclic complexity by hand using McCabe’s complexity metric I get the following: M = 10 - 3 + 2 = 9 compared to Lizards 11
+
+The number of lines is only 14 so that is most likely not a problem. Instead of a lot of comparisons to figure out if the date is valid, an array of all the months as index which store the number of days could make it a lot clearer.
+
+The code is well documented including the function’s purpose as well as text describing what each line of code does which makes it easy to understand. 
 
 #### Function `FlashSort.flashSort` (58 NLOC, 15 CCN):
 
@@ -67,9 +73,15 @@ The purpose of this function is to, given a number of a month and a year, return
 
 The documentation for this function is lacking. The calculation to check for leap year is not intuitive at all and I had to google when leap years occur to have a chance of understanding what it was doing.
 
-#### Function `MaxProductOfThree.maxProductOfThree` ([TODO] NLOC, [TODO] CCN):
+#### Function `MaxProductOfThree.maxProductOfThree` (30 NLOC, 11 CNN)
 
-[TODO]
+The purpose of this function is to calculate the maximum product och three integers in a given array of integers. Input is an array of integers. Output is an integer. With this specific implementation (Greedy approach). Lizard counts the cyclic complexity to 11, and lines of code to 30. 
+
+When I calculate the cyclicomatic complexity by hand using McCabe’s complexity metric I get the following: M = 10 - 1 + 2 = 11, which is the same as lizard. This is without counting the throw error. 
+
+To achieve lower cyclomatic complexity, one could for instance instead of just having one for loop calculating min and max values, create separate functions for each of them to make it easier to understand the code and what's happening.
+
+There’s documentation of the function's purpose as well as parameters and return values. Although there is not that much documentation describing other parts of the code. This may not be necessary but would have been a good addition to explain the different paths in the code. 
 
 #### Function `PrimMST._shiftDown` (39 NLOC, 12 CCN):
 
