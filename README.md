@@ -314,6 +314,23 @@ Extends the testing with two cases which test the railway time conversion when h
 
 Extends the testing with cases where the function will throw exceptions. Increases the coverage to 100%.
 
+#### Function `DateDayDifference.DateDayDifference` (79.16% branch coverage):
+
+This commit shows the two new tests implemented to increase the branch coverage. <https://github.com/Xolvez/DD2480-JavaScript/commit/7d9ebdaf11d531c10263b2a121bd9cbef7c2defa>  
+
+The two implemented tests cover for the two exceptions that tests for invalid input and invalid date.
+
+The implementation improved the branch coverage from 79.16% to 91.66%
+
+#### Function `MaxProductOfThree.maxProductOfThree` (88.8% branch coverage):
+
+These two commit shows the two new tests implemented to increase the branch coverage. <https://github.com/Xolvez/DD2480-JavaScript/commit/98ba4a774bb7a5f4aca289aef565d7b87ee8ba17> and <https://github.com/Xolvez/DD2480-JavaScript/commit/f69cd831e9d03bd727975b51fa137ec4b67167cf>
+
+The first test makes sure that the program works correctly when the first element in the array is less then second element. This covers for one of the if statements in the loop. 
+
+The second test makes sure that the program works correctly when the all elements in the array are of the same value. This covers the if statement on line 31
+
+The implementation improved the branch coverage from 88.8% to 100%
 
 ## Self-assessment: Way of working
 
