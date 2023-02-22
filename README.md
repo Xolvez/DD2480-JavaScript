@@ -314,6 +314,10 @@ Extends the testing with two cases which test the railway time conversion when h
 
 Extends the testing with cases where the function will throw exceptions. Increases the coverage to 100%.
 
+#### Function `DateDayDifference.DateDayDifference` (79.16% branch coverage):
+Implemented two tests to cover for the two exceptions that tests for invalid input and invalid date.
+
+The implementation improved the branch coverage from 79.16% to 91.66%
 
 ## Self-assessment: Way of working
 
