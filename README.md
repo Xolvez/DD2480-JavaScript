@@ -194,17 +194,20 @@ Branch 16 was not covered.
 
 The biggest limitation of the tool at the moment is that it requires the user to manually add logging lines in the target function. The results are inconsistent compared to the measurement with `npm test -- --coverage` which only detects that branch indices `6` and `14` are uncovered. For example, it seems like it does not consider the branches that correspond to loops that was entirely skipped, such as branch index `5`.
 
+#### Function `MaxProductOfThree.maxProductOfThree` (30 NLOC, 11 NCC)
+
+After implementing an ad-hoc coverage tool and running the intial tests on the repository one branch was not covered. The coverage tool gave the following output:
+
+`Branch 3 was not covered`
+
+The following commit shows the implementation of the coverage tool for the MaxProductOfThree function: <https://github.com/Xolvez/DD2480-JavaScript/compare/main...86-implement-ad-hoc-coverage-tool-for-maxproductofthreemaxproductofthree>
+
+
 #### Function `SimpsonIntegration.integralEvaluation` (43 NLOC, 8 CCN):
 
 The ad-hoc coverage tool for this function can be found in the branch `issue-52`, or in the commit [863f81d](https://github.com/Xolvez/DD2480-JavaScript/commit/863f81df86397b2c3d4548053682496d49180851).
 
 To run the tests with the tool, execute `npm test -- Maths/test/SimpsonIntegration.test.js` in the directory `DD2480-JavaScript`. The tool calculates the branch coverage to be 77.7%, which it logs to the console. This branch coverage percentage is the same as the one given by jest. To see the coverage report by jest, run `npm test -- --coverage` in the same directory. This ad-hoc coverage tool was implemented on the refractored version of the function, but before improving the test coverage.
-
-#### Function `[TODO].[TODO]` ([TODO] NLOC, [TODO] CCN):
-
-<[TODO]>
-
-[TODO]
 
 ## Coverage improvement
 
