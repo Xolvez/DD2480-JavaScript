@@ -109,6 +109,8 @@ The purpose of this function is to calculate the amount of days that differ betw
 
 When I calculate the cyclic complexity by hand using McCabe’s complexity metric I get the following: M = 10 - 3 + 2 = 9 compared to Lizards 11
 
+The number of lines is only 14 so that is most likely not a problem. Instead of a lot of comparisons to figure out if the date is valid, an array of all the months as index which store the number of days could make it a lot clearer.
+
 The code is well documented including the function’s purpose as well as text describing what each line of code does which makes it easy to understand. 
 
 
