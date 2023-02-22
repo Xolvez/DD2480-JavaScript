@@ -194,7 +194,7 @@ Branch 16 was not covered.
 
 The biggest limitation of the tool at the moment is that it requires the user to manually add logging lines in the target function. The results are inconsistent compared to the measurement with `npm test -- --coverage` which only detects that branch indices `6` and `14` are uncovered. For example, it seems like it does not consider the branches that correspond to loops that was entirely skipped, such as branch index `5`.
 
-#### Function `SimpsonIntegration.integralEvaluation` ([TODO] NLOC, [TODO] CCN):
+#### Function `SimpsonIntegration.integralEvaluation` (43 NLOC, 8 CCN):
 
 The ad-hoc coverage tool for this function can be found in the branch `issue-52`.
 
