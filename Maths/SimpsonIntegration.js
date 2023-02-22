@@ -20,7 +20,7 @@
 * More info: [Wikipedia link](https://en.wikipedia.org/wiki/Simpson%27s_rule#Composite_Simpson's_rule)
 *
 */
-function integralEvaluation (N, a, b, func) {
+function integralEvaluation (N, a, b, func, branchesTaken) {
   function validateInput () {
     // Check if N is an even integer
     const isNEven = N % 2 === 0
@@ -35,7 +35,12 @@ function integralEvaluation (N, a, b, func) {
 
   validateInput()
 
-  if (a === b) return 0
+  if (a === b) {
+    branchesTaken[0] = true
+    return 0
+  } else {
+    branchesTaken[1] = true
+  }
 
   // Calculate the step h
   const h = (b - a) / N
@@ -47,9 +52,18 @@ function integralEvaluation (N, a, b, func) {
   // Find the sum {f(x0) + 4*f(x1) + 2*f(x2) + ... + 2*f(xN-2) + 4*f(xN-1) + f(xN)}
   let temp
   for (let i = 0; i < N + 1; i++) {
-    if (i === 0 || i === N) temp = func(xi)
-    else if (i % 2 === 0) temp = 2 * func(xi)
-    else temp = 4 * func(xi)
+    branchesTaken[2] = true
+
+    if (i === 0 || i === N) {
+      branchesTaken[3] = true
+      temp = func(xi)
+    } else if (i % 2 === 0) {
+      branchesTaken[4] = true
+      temp = 2 * func(xi)
+    } else {
+      branchesTaken[5] = true
+      temp = 4 * func(xi)
+    }
 
     pointsArray.push(temp)
     xi += h
@@ -58,11 +72,19 @@ function integralEvaluation (N, a, b, func) {
   // Calculate the integral
   let result = h / 3
   temp = 0
-  for (let i = 0; i < pointsArray.length; i++) temp += pointsArray[i]
+  for (let i = 0; i < pointsArray.length; i++) {
+    branchesTaken[6] = true
+    temp += pointsArray[i]
+  }
 
   result *= temp
 
-  if (Number.isNaN(result)) { throw Error("Result is NaN. The input interval doesn't belong to the functions domain") }
+  if (Number.isNaN(result)) {
+    branchesTaken[7] = true
+    throw Error('Result is NaN. The input interval doesn\'t belong to the functions domain')
+  } else {
+    branchesTaken[8] = true
+  }
 
   return result
 }
