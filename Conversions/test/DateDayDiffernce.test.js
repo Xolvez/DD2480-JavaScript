@@ -19,3 +19,13 @@ test('The difference between 01/01/2001 & 16/03/2011 is 3727', () => {
   const res = DateDayDifference('01/01/2001', '16/03/2011')
   expect(res).toBe(3727)
 })
+
+test('Check if input is valid', () => {
+  const func = () => DateDayDifference(16032011, '01/01/2001')
+  expect(func).toThrow(TypeError)
+})
+
+test('Check if date is valid', () => {
+  const func = () => DateDayDifference('16/16/2001', '01/01/2001')
+  expect(func).toThrow(TypeError)
+})
