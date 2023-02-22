@@ -208,11 +208,14 @@ The biggest limitation of the tool at the moment is that it requires the user to
 
 ## Coverage improvement
 
-#### Function `DateDayDifference.DateDayDifference` ([TODO]% branch coverage):
+#### Function `DateDayDifference.DateDayDifference` (79% branch coverage):
 
-<[TODO]>
+This commit shows the two new tests implemented to increase the branch coverage:
+<https://github.com/Xolvez/DD2480-JavaScript/commit/7d9ebdaf11d531c10263b2a121bd9cbef7c2defa>  
 
-[TODO]
+The two implemented tests cover for the two exceptions that tests for invalid input and invalid date.
+
+The implementation improved the branch coverage from 79.16% to 91.66%
 
 #### Function `FibonacciSearch.fibonacciSearch` (75% branch coverage):
 
@@ -239,11 +242,17 @@ Extends the testing with a case where the input array consists of the positive a
 This function had 0 tests written for it, and thus the function itself had 0% coverage. The file, had a statement-, branch- and lines-coverage of 63.15%, 66.66% respectively 62.5%. After the added tests, all of these numbers was 100%, as measured by lizard. 
 The tests were implemented in the commit [e647b5d52f2d640e43d56ae6874818b0a82a3f73](https://github.com/Xolvez/DD2480-JavaScript/commit/e647b5d52f2d640e43d56ae6874818b0a82a3f73).
 
-#### Function `MaxProductOfThree.maxProductOfThree` ([TODO]% branch coverage):
+#### Function `MaxProductOfThree.maxProductOfThree` (89% branch coverage):
 
-<[TODO]>
+These two commit shows the two new tests implemented to increase the branch coverage:
+<https://github.com/Xolvez/DD2480-JavaScript/commit/98ba4a774bb7a5f4aca289aef565d7b87ee8ba17>
+<https://github.com/Xolvez/DD2480-JavaScript/commit/f69cd831e9d03bd727975b51fa137ec4b67167cf>
 
-[TODO]
+The first test makes sure that the program works correctly when the first element in the array is less then second element. This covers for one of the if statements in the loop. 
+
+The second test makes sure that the program works correctly when the all elements in the array are of the same value. This covers the if statement on line 31
+
+The implementation improved the branch coverage from 88.8% to 100%
 
 #### Function `PrimMST._shiftDown` (0% branch coverage):
 
